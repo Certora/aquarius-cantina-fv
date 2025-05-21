@@ -27,7 +27,7 @@ Note that some setup work and basic properties are already being provided by the
 ## Overview
 - 20,000 USDC of this contest will be allocated for FV.
 - Conventional bug submission, issue judgment, and all reward distribution will be managed by Cantina.
-- FV component is unique as participants are incentivized to implement and verify high coverage properties using the Certora Prover.
+- FV component is unique as participants are incentivized to implement and verify high coverage properties using the Certora Sunbeam Prover.
 - The judging of FV is conducted by Certora, with different submissions, incentives, and judging processes compared to the standard contest. These processes are explained in this document.
 
 ## Getting Started
@@ -36,10 +36,10 @@ Note that some setup work and basic properties are already being provided by the
 - **Update expired key**: 
   - Send a message in the [Certora Discord](https://discord.gg/certora)'s `access-key-request` channel.
 - **Tool Installation**: 
-  - Follow [installation instructions](https://docs.certora.com/en/latest/docs/sunbeam/installation.html) to download `certora-cli`. Use the latest version of the tool available at the start of the contest, throughout the whole contest.
+  - Follow [installation instructions](https://docs.certora.com/en/latest/docs/sunbeam/installation.html) to download `certora-cli`, Rust, and Stellar tools. Use the latest version of the tools available at the start of the contest, throughout the whole contest.
 - **Learning Resources**: 
   - Complete the [tutorials](https://certora-sunbeam-tutorials.readthedocs-hosted.com/en/latest/).
-  - See [below](https://github.com/Certora/soroban-amm-contest-prep/blob/contest-prep/CONTEST.md#notes-and-tips) in this doc for additional help.
+  - See [Notes and Tips below](#notes-and-tips) in this doc for additional help.
   - Search the [docs](https://docs.certora.com/en/latest/docs/sunbeam/index.html) for any additional information.
 - **Contest Participation**:
   - [Import](https://github.com/new/import) this repository into a new private repository at the contest's commencement.
@@ -47,8 +47,8 @@ Note that some setup work and basic properties are already being provided by the
     - You can work in a separate branch and merge changes at the end if you prefer.  
   - Grant access to `teryanarmen` and `srunquist-certora` for judging.
 - **Support Channels**:
-  - For tool-related issues, send a detailed message with a job link in `help-desk` channel in Discord. Remove the anonymousKey component from the link if you wish to limit viewing to Certora employees. 
-  - For FV contest questions, use the relevant community verification channel in Discord.
+  - For tool-related issues, send a detailed message with a job link in `help-desk` channel in the [Certora Discord](https://discord.gg/certora). Remove the anonymousKey component from the link if you wish to limit viewing to Certora employees. 
+  - For FV contest questions, use the `contests` channel in the [Certora Discord](https://discord.gg/certora).
 - **Certora folder**:
   - Certora infrastructure is made up of 5 folders listed below.
     - `fees_collector/confs`: configuration files for the tool. One example file is provided. More can be added if needed.
@@ -57,7 +57,7 @@ Note that some setup work and basic properties are already being provided by the
     - `fees_collector/src/certora_specs/mocks`: mock implementations needed for verification.
     - `fees_collector/mutations`: mutants folder which will be used to evaluate specs.
 - **Compiling**:
-  - To compile you code, run `just build` from the `fees_collector` directory.
+  - To compile your code, run `just build` from the `fees_collector` directory.
   - To run the prover with some `conf` file do the following:
   ```
   cd fees_collector/confs
@@ -73,17 +73,17 @@ Note that some setup work and basic properties are already being provided by the
   - **Coverage**: 70% of pool awarded for properties identifying private mutants.
 - If no properties are accepted for real bugs, the pool will be rebalanced to 90% coverage and 10% participation.
 - Mutants are mutated versions of the original code which create vulnerabilities. These mutants are used to gauge verified properties' coverage of the original code.
-  - Public mutants used for evaluating participation rewards can be found in `fees_collector/mutations`.
+  - Public mutants used for evaluating participation rewards can be found in `fees_collector/mutations/contract`.
 - Participation and coverage reward can be calculated as follows  
   - Each mutant is worth $0.9^{n - 1}$ points where $n$ is the number of participants that caught the mutant.  
-  - If we let $P$ be the total FV pool and $T$ be the sum of all mutants' points, we can define each participant's reward as $ \frac{P}{T} \cdot \frac{0.9^{n - 1}}{n} $
+  - If we let $P$ be the total FV prize pool and $T$ be the sum of all mutants' points, we can define each participant's reward for catching a given mutant as $\frac{P}{T} \cdot \frac{0.9^{n - 1}}{n}$
 - Real bug rewards will be awarded for properties that are violated because of the bug. Only the bug submitter can submit a spec for that bug. 10, 3, or 1 points will be allocated based on the severity of the bug (H/M/L). The severity of bugs accepted will match the audit contest rules. Real bug properties should have a contract in scope as the main file. It's possible to have a bug in a different contract caught by a rule for the main contract. 
 
 
 ## Submission Guidelines
 - **Submission**: 
   - Submit your work by sharing the private repo you cloned with `teryanarmen` and `srunquist-certora` on github.
-  - Properties for real bugs will be submitted as github issues on the same private repo and must contain a link to the normal bug submission through Cantina marked with relevant severity (L/M/H).
+  - Properties for real bugs will be submitted as GitHub issues on the same private repo and must contain a link to the normal bug submission through Cantina marked with relevant severity (L/M/H).
   - Submissions will not be public and will only be shared with the committee by sharing your private repo on github.
 
 - **Team Participation**:
@@ -95,9 +95,11 @@ Note that some setup work and basic properties are already being provided by the
   - Participants are allowed to create and modify configuration, harnesses, and specification files.
     - Some conf files have commented out settings which can be used to help with running time.
   - All coverage and participation submissions must pass on the unaltered original codebase.
-  - Source code modifications are prohibited.
+  - For Solidity, source code modifications are prohibited.
     - Evaluations are based on the original code; configurations reliant on code changes will be disregarded.
-  - Utilize the latest version of `certoraRun` available at contest start.
+  - For Rust, source code modifications are discouraged but allowed if necessary and it does not affect the behavior being tested.
+    - Submissions with code modifications that alter the behaviors being tested may be rejected. If unsure, ask in the [Certora Discord](https://discord.gg/certora) `contests` channel.
+  - Utilize the latest version of `certora-cli` available at contest start.
     - Make sure to update to the latest version of `certora-cli` before starting verification by running `pip install certora-cli --upgrade`.
     - Avoid updates during the contest, even if new versions are released.
     - Only update if explicitly told to by Certora team.
@@ -112,8 +114,8 @@ Note that some setup work and basic properties are already being provided by the
   - Focus on creating valuable and secure rules that can potentially be added to the protocol CI.
   - Avoid submitting rules that simply copy the contract's code or provide little value in terms of security verification.
 - **Real bug submissions**:
-  - Real bug submissions **must** include:
-    - A link to the  accepted underlying issue submitted through Cantina.
+  - Real bug submissions (as GitHub issue in your private repo) **must** include:
+    - A link to the accepted underlying issue submitted through Cantina.
     - Explanation of the property that finds the bug.
     - A link to a violated run of the property.
     - A proposed solution as a diff between the buggy and fixed code.
@@ -122,7 +124,7 @@ Note that some setup work and basic properties are already being provided by the
 ## Evaluation Process
 - **Preliminary Results**: Initial findings will be announced along with the mutations used for evaluation. A google sheet showing which mutants were caught by which participants will be shared. Participants will have a 72-hour period for review and submit corrections in case a certain mutant is marked as not caught but they actually caught it.
 - **Correction Submissions**: Corrections must include a verified run on the source code and a violated run on the mutant. Any changes other than the mutation will result in exclusion of the correction.
-- **Check your work**: Copy the mutants from `fees_collector/mutations` one at a time to the relevant directory and check that your spec catches them. You can search for the word "MUTANT" in each file to see the change.
+- **Check your work**: Copy the mutants from `fees_collector/mutations/contract` one at a time to the relevant directory and check that your spec catches them. You can search for the word "MUTANT" in each file to see the change.
     - Mutants `contract_0.rs`, `contract_1.rs`, `contract_2.rs` should be used to replace `fees_collector/src/contract.rs`.
     - Similarly, you can make mutants for `access_control` files. For example, you can add a mutant, `fees_collector/mutations/management/management_0.rs` and use it to replace `access_control/src/management.rs`.
 - **Mutant Removal**: Certora reserves the right to remove any mutants that are caught only by low-value rules. This ensures that participants focus on creating valuable and secure rules rather than just catching mutations.
@@ -147,3 +149,5 @@ Note that some setup work and basic properties are already being provided by the
 - You can see how to create ghost variables by looking at the variable `ACCESS_CONTROL` and its updates.
 - You can see the spec language we used [here](https://github.com/Certora/cvlr) and [here](https://github.com/Certora/cvlr-soroban).
 - For debugging, we recommend running one rule at a time by changing the `rule` field in the `conf` files.
+- Unlike CVL, invariants are not directly supported but they can be implemented as functions [as in this example](https://github.com/Certora/reflector-dao-contract/blob/certora/src/certora_specs/spec.rs#L184).
+- Parametric rules can be implemented to test with various functions [defined this way](https://github.com/Certora/reflector-subscription-contract/blob/certora/src/certora_specs/spec.rs#L194).
