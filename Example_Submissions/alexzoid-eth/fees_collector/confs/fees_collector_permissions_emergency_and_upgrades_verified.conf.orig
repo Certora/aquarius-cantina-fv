@@ -1,0 +1,16 @@
+{
+    "build_script": "../certora_build.py",
+    "loop_iter": "2",
+    "msg": "permissions_emergency_and_upgrades",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "permissions_emergency_mode_changes_set_emergency_mode",
+        "permissions_upgrade_deadline_changes_commit_upgrade",
+        "permissions_upgrade_deadline_changes_apply_upgrade",
+        "permissions_upgrade_deadline_changes_revert_upgrade",
+        "permissions_future_wasm_changes_commit_upgrade",
+        "permissions_future_wasm_changes_apply_upgrade",
+        "permissions_future_wasm_changes_revert_upgrade"
+    ]
+}

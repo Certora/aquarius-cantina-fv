@@ -1,0 +1,10 @@
+{
+    "build_script": "../certora_build.py",
+    "loop_iter": "2",
+    "msg": "state_transition_admin_role_h_set_role_address",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "state_transition_admin_role_h_set_role_address",
+    ]
+}

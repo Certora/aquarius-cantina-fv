@@ -1,0 +1,10 @@
+{
+    "build_script": "../certora_build.py",
+    "loop_iter": "2",
+    "msg": "integrity_address_has_role",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "integrity_address_has_role"
+    ]
+}

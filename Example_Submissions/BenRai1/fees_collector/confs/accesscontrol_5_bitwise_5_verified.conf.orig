@@ -1,0 +1,13 @@
+{
+    "build_script": "../certora_build.py",
+    "loop_iter": "5",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "invariant_role_to_key_for_apply_transfer_ownership",
+        "get_role_addresses_reverts_if_role_does_not_have_many_users",
+        "get_role_addresses_returns_right_vector"
+    ],
+    "prover_version": "master",
+    "precise_bitwise_ops": true
+}

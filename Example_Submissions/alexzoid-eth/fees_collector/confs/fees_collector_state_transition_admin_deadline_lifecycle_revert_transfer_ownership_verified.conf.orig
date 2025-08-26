@@ -1,0 +1,10 @@
+{
+    "build_script": "../certora_build.py",
+    "loop_iter": "2",
+    "msg": "state_transition_admin_deadline_lifecycle_revert_transfer_ownership",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "state_transition_admin_deadline_lifecycle_revert_transfer_ownership",
+    ]
+}

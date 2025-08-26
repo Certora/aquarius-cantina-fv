@@ -1,0 +1,20 @@
+{
+    "build_script": "../certora_build.py",
+    "loop_iter": "5",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "invariant_bump_instance_called_for_commit_transfer_ownership",
+        "invariant_bump_instance_called_for_apply_transfer_ownership",
+        "invariant_transfer_delayed_checked_for_commit_transfer_ownership",
+        "invariant_transfer_delayed_checked_for_set_role_addresses",
+        "invariant_transfer_delayed_checked_for_get_future_address",
+        "invariant_has_many_users_checked_for_commit_transfer_ownership",
+        "invariant_has_many_users_checked_for_set_role_address",
+        "invariant_has_many_users_checked_for_get_role_addresses",
+        "invariant_has_many_users_checked_for_set_role_addresses",
+        "invariant_has_many_users_checked_for_get_future_address"
+    ],
+    "prover_version": "master",
+    "precise_bitwise_ops": true
+}

@@ -1,0 +1,14 @@
+{
+    "build_script": "../certora_build.py",
+    "loop_iter": "2",
+    "msg": "state_transition_admin_never_zero",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "state_transition_admin_never_zero_init_admin",
+        "state_transition_admin_never_zero_h_init_all_roles",
+        "state_transition_admin_never_zero_apply_transfer_ownership",
+        "state_transition_admin_never_zero_commit_transfer_ownership",
+        "state_transition_admin_never_zero_revert_transfer_ownership"
+    ]
+}

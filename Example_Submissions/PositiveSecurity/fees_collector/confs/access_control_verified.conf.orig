@@ -1,0 +1,30 @@
+{
+    "build_script": "../certora_build.py",
+    "optimistic_loop": true,
+    "loop_iter": "2",
+    "process": "emv",
+    "rule": [
+        "apply_transfer_ownership_return_correct",
+        "get_role_safe_correct",
+        "get_role_safe_bad_role_fails",
+        "get_role_correct",
+        "get_role_bad_role_fails",
+        "get_role_no_address_fails",
+        "set_role_address_correct",
+        "set_role_address_bad_role_fails",
+        "set_role_address_timeout_fails",
+        "set_role_addresses_correct",
+        "set_get_role_addresses_correct",
+        "get_role_addresses_bad_role_fails",
+        "set_role_addresses_bad_role_fails",
+        "get_key_correct",
+        "get_future_key_correct",
+        "get_future_deadline_key_correct",
+        "put_transfer_ownership_deadline_correct",
+        "put_get_transfer_ownership_deadline_correct",
+        "require_rewards_admin_or_owner_unauthorized_fails",
+        "require_operations_admin_or_owner_unauthorized_fails",
+        "require_pause_admin_or_owner_unauthorized_fails",
+        "from_symbol_bad_role_fails"
+    ]
+}

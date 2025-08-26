@@ -1,0 +1,12 @@
+{
+    "build_script": "../certora_build.py",
+    "loop_iter": "5",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "as_symbol_works",
+        "as_symbol_works_for_all_roles"
+    ],
+    "prover_version": "master",
+    "precise_bitwise_ops": true
+}

@@ -1,0 +1,21 @@
+{
+	"build_script": "../certora_build.py",
+	"loop_iter": "2",
+	"msg": "integrity_role_address_single",
+	"optimistic_loop": true,
+	"process": "emv",
+	"rule": [
+		"integrity_role_address_single"
+	],
+	"smt_timeout": "7200",
+	"prover_args": [
+		"-dontStopAtFirstSplitTimeout",
+		"true",
+		"-backendStrategy",
+		"singleRace",
+		"-smt_useLIA",
+		"false",
+		"-smt_useNIA",
+		"true"
+	]
+}

@@ -1,0 +1,10 @@
+{
+    "build_script": "../certora_build.py",
+    "loop_iter": "2",
+    "msg": "permissions_future_admin_changes_commit_transfer_ownership",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "permissions_future_admin_changes_commit_transfer_ownership",
+    ]
+}

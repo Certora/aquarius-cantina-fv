@@ -1,0 +1,24 @@
+{
+    "build_script": "../certora_build.py",
+    "optimistic_loop": true,
+    "loop_iter": "2",
+    "process": "emv",
+    "rule": [
+        "commit_transfer_ownership_correct",
+        "commit_transfer_ownership_requires_admin",
+        "commit_transfer_ownership_bad_role_usage_fails",
+        "commit_transfer_ownership_another_action_active_fails",
+        "apply_transfer_ownership_correct",
+        "apply_transfer_ownership_requires_admin",
+        "apply_transfer_ownership_before_deadline_fails",
+        "apply_transfer_ownership_no_action_active_fails",
+        "apply_transfer_ownership_no_future_address_fails",
+        "revert_transfer_ownership_correct",
+        "revert_transfer_ownership_requires_admin",
+        "get_future_address_correct",
+        "get_future_address_no_commit",
+        "get_future_address_not_found_fails",
+        "get_future_address_bad_role_fails",
+        "get_future_address_no_future_address_fails"
+    ]
+}

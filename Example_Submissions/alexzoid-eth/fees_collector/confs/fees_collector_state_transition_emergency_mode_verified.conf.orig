@@ -1,0 +1,13 @@
+{
+    "build_script": "../certora_build.py",
+    "loop_iter": "2",
+    "msg": "state_transition_emergency_mode",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "state_transition_emergency_mode_behavior_apply_upgrade",
+        "state_transition_emergency_mode_behavior_apply_transfer_ownership",
+        "state_transition_emergency_mode_behavior_set_emergency_mode",
+        "state_transition_emergency_mode_behavior_h_set_emergency_mode_direct",
+    ]
+}

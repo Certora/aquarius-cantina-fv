@@ -1,0 +1,20 @@
+{
+    "build_script": "../certora_build.py",
+    "loop_iter": "5",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "commit_transfer_ownership_reverts_if_not_admin",
+        "commit_transfer_ownership_reverts_if_no_admin_role",
+        "commit_transfer_ownership_reverts_if_no_transfer_delay",
+        "commit_transfer_ownership_reverts_many_users",
+        "commit_transfer_ownership_reverts_if_deadline_set",
+        "commit_transfer_ownership_works_for_admin_and_emergency_admin",
+        "commit_transfer_ownership_sets_deadline",
+        "commit_transfer_ownership_set_future_address",
+        "apply_transfer_ownership_reverts_not_admin_or_eadmin",
+        "apply_transfer_ownership_reverts_if_not_admin"
+    ],
+    "prover_version": "master",
+    "precise_bitwise_ops": true
+}

@@ -1,0 +1,20 @@
+{
+    "build_script": "../certora_build.py",
+    "loop_iter": "5",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "set_role_address_works_for_operations_admin",
+        "set_role_address_works_for_pause_admin",
+        "set_role_address_works_for_admin_if_not_set",
+        "has_many_users_returns_true_only_for_emergency_pause_admin",
+        "invariant_only_admin_can_call_commit_transfer_ownership",
+        "invariant_bump_instance_called_for_get_emergency_mode",
+        "invariant_bump_instance_called_for_set_emergency_mode",
+        "invariant_bump_instance_called_for_set_role_address",
+        "invariant_bump_instance_called_for_get_role_addresses",
+        "invariant_bump_instance_called_for_set_role_addresses"
+    ],
+    "prover_version": "master",
+    "precise_bitwise_ops": true
+}

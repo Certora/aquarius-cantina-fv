@@ -1,0 +1,20 @@
+{
+    "build_script": "../certora_build.py",
+    "loop_iter": "5",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "invariant_transfer_deadline_checked_for_commit_transfer_ownership",
+        "invariant_transfer_deadline_checked_for_apply_transfer_ownership",
+        "invariant_transfer_deadline_checked_for_get_future_address",
+        "invariant_event_access_for_commit_transfer_ownership",
+        "invariant_event_access_for_apply_transfer_ownership",
+        "invariant_event_access_for_revert_transfer_ownership",
+        "invariant_event_access_for_set_emergency_mode",
+        "emited_event_upgrade_commit_upgrade",
+        "emited_event_upgrade_apply_upgrade",
+        "emited_event_upgrade_revert_upgrade"
+    ],
+    "prover_version": "master",
+    "precise_bitwise_ops": true
+}

@@ -1,0 +1,20 @@
+{
+    "build_script": "../certora_build.py",
+    "loop_iter": "5",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "commit_upgrade_sets_future_wasm",
+        "commit_upgrade_must_work",
+        "apply_upgrade_reverts_if_admin_not_auth",
+        "apply_upgrade_reverts_if_no_admin_role",
+        "apply_upgrade_reverts_if_deadline_not_passed",
+        "apply_upgrade_reverts_if_deadline_zero",
+        "apply_upgrade_reverts_if_future_wasm_zero",
+        "apply_upgrade_sets_deadline_zero",
+        "apply_upgrade_returns_new_wasm",
+        "revert_upgrade_reverts_if_admin_not_auth"
+    ],
+    "prover_version": "master",
+    "precise_bitwise_ops": true
+}

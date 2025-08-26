@@ -1,0 +1,20 @@
+{
+    "build_script": "../certora_build.py",
+    "loop_iter": "5",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "invariant_symbol_to_role_for_commit_transfer_ownership",
+        "invariant_symbol_to_role_for_apply_transfer_ownership",
+        "invariant_symbol_to_role_for_revert_transfer_ownership",
+        "invariant_symbol_to_role_for_get_future_address",
+        "get_transfer_ownership_deadline_reverts_for_all_but_admin_and_emergency_admin",
+        "get_transfer_ownership_deadline_returns_right_deadline",
+        "get_key_returns_right_key",
+        "invariant_role_to_key_for_init_admin",
+        // "invariant_role_to_key_for_address_has_role",
+        "invariant_role_to_key_for_set_role_addresses"
+    ],
+    "prover_version": "master",
+    "precise_bitwise_ops": true
+}

@@ -1,0 +1,12 @@
+{
+    "build_script": "../certora_build.py",
+    "loop_iter": "2",
+    "msg": "permissions_future_addresses",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "permissions_future_admin_changes_revert_transfer_ownership",
+        "permissions_future_em_admin_changes_apply_transfer_ownership",
+        "permissions_future_em_admin_changes_revert_transfer_ownership"
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "build_script": "../certora_build.py",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "init_admin_sets_admin",
+        "only_emergency_admin_sets_emergency_mode",
+        "set_emergency_mode_success"
+    ]
+}

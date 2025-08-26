@@ -1,0 +1,13 @@
+{
+    "build_script": "../certora_build.py",
+    "loop_iter": "2",
+    "msg": "permissions_transfer_deadlines",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "permissions_admin_transfer_deadline_changes_revert_transfer_ownership",
+        "permissions_em_admin_transfer_deadline_changes_commit_transfer_ownership",
+        "permissions_em_admin_transfer_deadline_changes_apply_transfer_ownership",
+        "permissions_em_admin_transfer_deadline_changes_revert_transfer_ownership"
+    ]
+}

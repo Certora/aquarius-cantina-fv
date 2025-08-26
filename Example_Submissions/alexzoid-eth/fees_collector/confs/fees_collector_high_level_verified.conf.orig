@@ -1,0 +1,17 @@
+{
+    "build_script": "../certora_build.py",
+    "loop_iter": "2",
+    "msg": "high_level",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "high_level_revert_ownership_transfer",
+        "high_level_upgrade_immediate_in_emergency",
+        "high_level_upgrade_reachable",
+        "high_level_revert_upgrade",
+        "high_level_revert_upgrade_reachable",
+        "high_level_emergency_mode_toggle",
+        "high_level_concurrent_transfers_blocked",
+        "high_level_deadline_expiry_prevents_apply",
+    ]
+}

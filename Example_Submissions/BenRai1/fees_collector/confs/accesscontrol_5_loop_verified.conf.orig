@@ -1,0 +1,14 @@
+{
+    "build_script": "../certora_build.py",
+    "loop_iter": "5",
+    "optimistic_loop": true,
+    "process": "emv",
+    "rule": [
+        "require_pause_or_emergency_pause_admin_or_owner_reverts",
+        "require_pause_or_emergency_pause_admin_or_owner_passes_for_pause_admin",
+        "require_pause_or_emergency_pause_admin_or_owner_passes_for_admin",
+        "set_role_addresses_passes_for_emergency_pause_admin"
+
+    ],
+    "prover_version": "master"
+}
